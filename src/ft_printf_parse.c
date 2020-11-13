@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.c                                            :+:      :+:    :+:   */
+/*   ft_printf_parse.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsherie <dsherie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 17:53:44 by dsherie           #+#    #+#             */
-/*   Updated: 2020/11/13 17:54:13 by dsherie          ###   ########.fr       */
+/*   Updated: 2020/11/13 19:50:57 by dsherie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int			for_parse_width(t_str *str, va_list ap, int start_flag)
+int			for_parse_width(t_str *str, va_list parametr, int start_flag)
 {
 	int trash;
 
 	if (!str->width || !start_flag)
 	{
-		str->width = va_arg(ap, int);
+		str->width = va_arg(parametr, int);
 		if (str->width < 0)
 		{
 			str->width = -str->width;
@@ -28,7 +28,7 @@ int			for_parse_width(t_str *str, va_list ap, int start_flag)
 	}
 	else
 	{
-		trash = va_arg(ap, int);
+		trash = va_arg(parametr, int);
 		return (start_flag);
 	}
 }
@@ -54,14 +54,14 @@ const char	*parse_flag(const char *s, t_str *str)
 	return (s);
 }
 
-const char	*parse_width(const char *s, t_str *str, va_list ap)
+const char	*parse_width(const char *s, t_str *str, va_list parametr)
 {
 	int	start_flag;
 
 	start_flag = 0;
 	if (*s == '*')
 	{
-		start_flag = for_parse_width(str, ap, start_flag);
+		start_flag = for_parse_width(str, parametr, start_flag);
 		++s;
 	}
 	while (*s >= '0' && *s <= '9')
@@ -72,13 +72,13 @@ const char	*parse_width(const char *s, t_str *str, va_list ap)
 	}
 	if (*s == '*')
 	{
-		start_flag = for_parse_width(str, ap, start_flag);
+		start_flag = for_parse_width(str, parametr, start_flag);
 		++s;
 	}
 	return (s);
 }
 
-const char	*parse_accuracy(const char *s, t_str *str, va_list ap)
+const char	*parse_accuracy(const char *s, t_str *str, va_list parametr)
 {
 	int	trash;
 
@@ -96,9 +96,9 @@ const char	*parse_accuracy(const char *s, t_str *str, va_list ap)
 	if (*s == '*' && str->flag_accuracy)
 	{
 		if (!str->accuracy)
-			str->accuracy = va_arg(ap, int);
+			str->accuracy = va_arg(parametr, int);
 		else
-			trash = va_arg(ap, int);
+			trash = va_arg(parametr, int);
 		if (str->accuracy < 0)
 			str->flag_accuracy = 0;
 		++s;
@@ -115,6 +115,7 @@ const char	*parse_specificator(const char *s, t_str *str)
 		str->specif = ft_strchr(specificator, *s) - specificator;
 		if (*s == 'i')
 			str->specif = 3;
+		str->exist = 1;
 		++s;
 	}
 	return (s);

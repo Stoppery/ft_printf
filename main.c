@@ -6,14 +6,13 @@
 /*   By: dsherie <dsherie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 17:44:02 by dsherie           #+#    #+#             */
-/*   Updated: 2020/11/13 17:53:06 by dsherie          ###   ########.fr       */
+/*   Updated: 2020/11/13 20:14:23 by dsherie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
 int		main(){
-	ft_printf("%.1000s", "123");
+	ft_printf("%-100.20lu %10d", "123",123);
 	return (1);
 }
-

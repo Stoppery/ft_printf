@@ -6,12 +6,12 @@
 /*   By: dsherie <dsherie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 15:54:53 by dsherie           #+#    #+#             */
-/*   Updated: 2020/11/13 17:55:50 by dsherie          ###   ########.fr       */
+/*   Updated: 2020/11/13 20:09:39 by dsherie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef LIBFTPRINTF_H
+# define LIBFTPRINTF_H
 
 # include "libft.h"
 # include <stdarg.h>
@@ -27,16 +27,18 @@ typedef struct	s_str
 		int		accuracy;
 		int		width;
 		int		specif;
+		int		exist;
 		
 }				t_str;
 
-int			for_parse_width(t_str *str, va_list ap, int start_flag);
+int			for_parse_width(t_str *str, va_list parametr, int start_flag);
 const char	*parse_flag(const char *s, t_str *str);
-const char	*parse_width(const char *s, t_str *str, va_list ap);
-const char	*parse_accuracy(const char *s, t_str *str, va_list ap);
+const char	*parse_width(const char *s, t_str *str, va_list parametr);
+const char	*parse_accuracy(const char *s, t_str *str, va_list parametr);
 const char	*parse_specificator(const char *s, t_str *str);
-int			whole_parser(const char *s, t_str *str, va_list ap);
-void		if_zero(t_str *block, int *count);
+int			whole_parser(const char *s, t_str *str, va_list parametr);
+void		to_zero(t_str *str, int *count);
+int			no_spec(const char *s);
 int			ft_printf(const char *format, ...);
 
 #endif 
