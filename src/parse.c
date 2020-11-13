@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsherie <dsherie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/12 16:44:08 by dsherie           #+#    #+#             */
-/*   Updated: 2020/11/12 17:48:35 by dsherie          ###   ########.fr       */
+/*   Created: 2020/11/13 17:53:44 by dsherie           #+#    #+#             */
+/*   Updated: 2020/11/13 17:54:13 by dsherie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdio.h>
+#include "libftprintf.h"
 
-int	for_parse_width(t_str *str, va_list ap, int start_flag)
+int			for_parse_width(t_str *str, va_list ap, int start_flag)
 {
 	int trash;
 
@@ -50,6 +49,8 @@ const char	*parse_flag(const char *s, t_str *str)
 			str->flag_plus = 1;
 		++s;
 	}
+	if (str->flag_minus == 1 && str->flag_zero == 1)
+		str->flag_zero = 0;
 	return (s);
 }
 
@@ -74,49 +75,47 @@ const char	*parse_width(const char *s, t_str *str, va_list ap)
 		start_flag = for_parse_width(str, ap, start_flag);
 		++s;
 	}
-	printf("HELLO: %s\n",s);
 	return (s);
 }
 
-int	whole_parser(const char *s, t_str *str, va_list ap)
+const char	*parse_accuracy(const char *s, t_str *str, va_list ap)
 {
-	const char *start;
+	int	trash;
 
-	start = s;
-	s = parse_flag(s, str);
-	printf("WHOLE_PARSE1: %s\n", s);
-	//s = parse_accuracy(s, str, ap);
-	s = parse_width(s, str, ap);
-	printf("WHOLE_PARSE2: %s\n", s);
-	// s = parse_p(s, str, ap);
-	// s += parse_mod(s, str);
-	// s = parse_c(s, str);
-	return (s - start);
+	if (*s == '.')
+	{
+		str->flag_accuracy = 1;
+		++s;
+	}
+	while (*s >= '0' && *s <= '9' && str->flag_accuracy)
+	{
+		if (!(str->accuracy))
+			str->accuracy = ft_atoi(s);
+		++s;
+	}
+	if (*s == '*' && str->flag_accuracy)
+	{
+		if (!str->accuracy)
+			str->accuracy = va_arg(ap, int);
+		else
+			trash = va_arg(ap, int);
+		if (str->accuracy < 0)
+			str->flag_accuracy = 0;
+		++s;
+	}
+	return (s);
 }
 
-void	if_zero(t_str *block, int *count)
+const char	*parse_specificator(const char *s, t_str *str)
 {
-	ft_bzero(block, sizeof(*block));
-	*count = 0;
+	static char specificator[] = "cspduxX%";
+
+	if (*s && (ft_strchr(specificator, *s) || *s == 'i'))
+	{
+		str->specif = ft_strchr(specificator, *s) - specificator;
+		if (*s == 'i')
+			str->specif = 3;
+		++s;
+	}
+	return (s);
 }
-
-
-int	ft_printf(const char *format, ...)
-{
-	va_list	ap;
-	t_str	str;
-	int		count;
-	int		temp;
-
-	if_zero(&str, &count);
-	va_start(ap, format);
-	format += whole_parser(format + 1, &str, ap) + 1;
-	printf("%s\n", format);
-	return 1;
-}
-
-int main() {
-	ft_printf("*05d", 123);
-	return 0;
-}
-

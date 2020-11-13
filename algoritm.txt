@@ -11,7 +11,7 @@
 	cspdiuxX% :
 	c - один символ
 	d - целое десятичное со знаком
-	i - целое десятичное со знаком (но если есть 0 в начале то 16ричная сиситема)
+	i - целое десятичное со знаком (но если есть 0 в начале то 8ричная сиситема)
 	p - вывод указателя. Вывод может различаться в зависимости от компилятора и платформы.
 	s - Строка символов
 	u - Десятичное целое число без знака
@@ -20,4 +20,4 @@
 	%% - Знак %
 
 
- gcc ft_printf.c ./libft/ft_atoi.c ./libft/ft_bzero.c ./libft/ft_isdigit.c ./libft/ft_memset.c ./libft/ft_strchr.c ./libft/ft_strlen.c
+ gcc ft_printf.c ./libft/ft_atoi.c ./libft/ft_bzero.c ./libft/ft_isdigit.c ./libft/ft_memset.c ./libft/ft_strchr.c ./libft/ft_strlen.c                                                                                                                                                                                                                                                                                                                                              
