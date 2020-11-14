@@ -6,13 +6,15 @@
 /*   By: dsherie <dsherie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 17:44:02 by dsherie           #+#    #+#             */
-/*   Updated: 2020/11/14 18:15:22 by dsherie          ###   ########.fr       */
+/*   Updated: 2020/11/14 21:25:53 by dsherie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+#include <stdio.h>
 
 int		main(){
-	ft_printf("%10s%%", "123\n");
+	ft_printf("%+5.10i\n", 123);
+	printf("%+5.10i\n", 123);
 	return (1);
 }

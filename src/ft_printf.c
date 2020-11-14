@@ -6,7 +6,7 @@
 /*   By: dsherie <dsherie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 16:44:08 by dsherie           #+#    #+#             */
-/*   Updated: 2020/11/14 18:12:52 by dsherie          ###   ########.fr       */
+/*   Updated: 2020/11/14 21:17:56 by dsherie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,14 @@ int			spec_choose(t_str *str, va_list parametr)
 		return (spec_s(str, parametr));
 	// if (str->specif == 2)
 	// 	return (spec_p(&str, parametr));
-	// if (str->specif == 3)
-	// 	return (spec_d(&str, parametr));
+	if (str->specif == 3)
+		return (spec_d(str, parametr));
 	// if (str->specif == 4)
-	// 	return (spec_u(&str, parametr));
+	// 	return (spec_u(str, parametr));
 	// if (str->specif == 5)
-	// 	return (spec_x(&str, parametr));
+	// 	return (spec_x(str, parametr));
 	// if (str->specif == 6)
-	// 	return (spec_X(&str, parametr));
+	// 	return (spec_X(str, parametr));
 	if (str->specif == 7)
 		return (spec_percent(str));
 	return (1);

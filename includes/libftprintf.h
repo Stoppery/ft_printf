@@ -6,7 +6,7 @@
 /*   By: dsherie <dsherie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 15:54:53 by dsherie           #+#    #+#             */
-/*   Updated: 2020/11/14 18:13:04 by dsherie          ###   ########.fr       */
+/*   Updated: 2020/11/14 21:14:39 by dsherie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ typedef struct	s_str
 		int		width;
 		int		specif;
 		int		exist;
+		int		negative;
+		int		extra_symbol;
 		
 }				t_str;
 
@@ -38,6 +40,12 @@ const char	*parse_accuracy(const char *s, t_str *str, va_list parametr);
 const char	*parse_specificator(const char *s, t_str *str);
 int			whole_parser(const char *s, t_str *str, va_list parametr);
 void		padding(int length, char c);
+int			number_rank(unsigned long n, int base);
+char		for_sign(t_str *str, long n);
+int			str_len(t_str *str, int length, char *extra_symbols);
+void		str_padding(t_str *str, int length, int str_length, int seg);
+char		*ft_itoa_d(long n);
+int			spec_d(t_str *str, va_list parametr);
 int			spec_c(t_str *str, va_list parametr);
 int			spec_s(t_str *str, va_list parametr);
 int			spec_percent(t_str *str);

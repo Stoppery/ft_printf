@@ -6,7 +6,7 @@
 /*   By: dsherie <dsherie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 17:53:44 by dsherie           #+#    #+#             */
-/*   Updated: 2020/11/13 19:50:57 by dsherie          ###   ########.fr       */
+/*   Updated: 2020/11/14 19:21:07 by dsherie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ const char	*parse_flag(const char *s, t_str *str)
 			str->flag_plus = 1;
 		++s;
 	}
-	if (str->flag_minus == 1 && str->flag_zero == 1)
+	if (str->flag_minus)
 		str->flag_zero = 0;
 	return (s);
 }
