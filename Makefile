@@ -5,6 +5,7 @@ SRCDIR = ./src/
 LIBFTDIR = ./libft/
 
 SRC =	$(SRCDIR)ft_printf_parse.c\
+		$(SRCDIR)ft_printf_str_spec.c\
 		$(SRCDIR)ft_printf.c\
 		
 
