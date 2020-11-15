@@ -8,6 +8,7 @@ SRC =	$(SRCDIR)ft_printf_parse.c\
 		$(SRCDIR)ft_printf_str_spec.c\
 		$(SRCDIR)ft_printf_utils_for_numbers.c\
 		$(SRCDIR)ft_printf_d_spec.c\
+		$(SRCDIR)ft_printf_pux_spec.c\
 		$(SRCDIR)ft_printf.c\
 		
 

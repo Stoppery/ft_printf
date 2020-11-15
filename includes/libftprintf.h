@@ -6,7 +6,7 @@
 /*   By: dsherie <dsherie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 15:54:53 by dsherie           #+#    #+#             */
-/*   Updated: 2020/11/14 21:14:39 by dsherie          ###   ########.fr       */
+/*   Updated: 2020/11/15 19:23:42 by dsherie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,14 @@ char		for_sign(t_str *str, long n);
 int			str_len(t_str *str, int length, char *extra_symbols);
 void		str_padding(t_str *str, int length, int str_length, int seg);
 char		*ft_itoa_d(long n);
+char		*ft_itoa_pux(unsigned long long int p, int base, char c);
+int			result_ux(t_str *str, unsigned long long n, char *s, char *extra);
 int			spec_d(t_str *str, va_list parametr);
 int			spec_c(t_str *str, va_list parametr);
 int			spec_s(t_str *str, va_list parametr);
+int			spec_p(t_str *str, va_list parametr);
+int			spec_u(t_str *str, va_list parametr);
+int			spec_x(t_str *str, va_list parametr);
 int			spec_percent(t_str *str);
 void		to_zero(t_str *str, int *count);
 int			no_spec(const char *s);
