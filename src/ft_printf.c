@@ -22,7 +22,6 @@ int			whole_parser(const char *s, t_str *str, va_list parametr)
 	s = parse_width(s, str, parametr);
 	s = parse_accuracy(s, str, parametr);
 	s = parse_specificator(s, str);
-	printf("width: %d\n", str->width);       // При ширине -7 через *
 	return (s - start);
 }
 

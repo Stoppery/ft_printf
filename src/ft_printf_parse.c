@@ -23,6 +23,7 @@ int			for_parse_width(t_str *str, va_list parametr, int start_flag)
 		{
 			str->width = -str->width;
 			str->flag_minus = 1;
+			str->flag_zero = 0;
 		}
 		return (1);
 	}
