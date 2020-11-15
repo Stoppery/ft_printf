@@ -6,7 +6,7 @@
 /*   By: dsherie <dsherie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 17:33:40 by dsherie           #+#    #+#             */
-/*   Updated: 2020/11/15 19:23:07 by dsherie          ###   ########.fr       */
+/*   Updated: 2020/11/15 20:10:12 by dsherie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	result_ux(t_str *str, unsigned long long n, char *s, char *extra)
 
 int	spec_u(t_str *str, va_list parametr)
 {
-	unsigned long long int	u;
+	unsigned long long int			u;
 	char					*s;
 
 	u = va_arg(parametr, unsigned long long int);

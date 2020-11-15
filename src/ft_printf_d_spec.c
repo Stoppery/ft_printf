@@ -6,7 +6,7 @@
 /*   By: dsherie <dsherie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 17:06:36 by dsherie           #+#    #+#             */
-/*   Updated: 2020/11/14 21:21:17 by dsherie          ###   ########.fr       */
+/*   Updated: 2020/11/15 19:52:37 by dsherie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@ char	*ft_itoa_d(long n)
 	char	*s;
 	int		i;
 	long	k;
+	int		p;
 
 	k = (n < 0) ? -n : n;
 	i = number_rank(k, 10);
+	p = i;
 	if (!(s = (char*)malloc(i + 1)))
 		return (NULL);
 	if (!n)
@@ -32,6 +34,7 @@ char	*ft_itoa_d(long n)
 			s[--i] = -(n % 10) + '0';
 		n /= 10;
 	}
+	s[p] = '\0';
 	return (s);
 }
 

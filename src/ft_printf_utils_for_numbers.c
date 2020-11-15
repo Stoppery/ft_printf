@@ -6,7 +6,7 @@
 /*   By: dsherie <dsherie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 20:08:52 by dsherie           #+#    #+#             */
-/*   Updated: 2020/11/15 19:19:56 by dsherie          ###   ########.fr       */
+/*   Updated: 2020/11/15 20:13:47 by dsherie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,9 +91,11 @@ char	*ft_itoa_pux(unsigned long long int p, int base, char c)
 	char					*s;
 	int						i;
 	unsigned long long int	n;
+	int						k;
 
 	n = (unsigned long long int)p;
 	i = number_rank(n, base);
+	k = i;
 	if (!(s = (char*)malloc(i + 1)))
 		return (NULL);
 	if (!n)
@@ -104,7 +106,8 @@ char	*ft_itoa_pux(unsigned long long int p, int base, char c)
 			s[--i] = n % base - 10 + c;
 		else
 			s[--i] = n % base + '0';
-		n /= 16;
+		n /= base;
 	}
+	s[k] = '\0';
 	return (s);
 }
