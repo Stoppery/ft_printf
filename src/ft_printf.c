@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <stdio.h>
 
 int			whole_parser(const char *s, t_str *str, va_list parametr)
 {
