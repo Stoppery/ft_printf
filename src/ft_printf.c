@@ -6,11 +6,12 @@
 /*   By: dsherie <dsherie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 16:44:08 by dsherie           #+#    #+#             */
-/*   Updated: 2020/11/15 19:23:54 by dsherie          ###   ########.fr       */
+/*   Updated: 2020/11/15 20:52:25 by dsherie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+#include <stdio.h>
 
 int			whole_parser(const char *s, t_str *str, va_list parametr)
 {
@@ -21,6 +22,7 @@ int			whole_parser(const char *s, t_str *str, va_list parametr)
 	s = parse_width(s, str, parametr);
 	s = parse_accuracy(s, str, parametr);
 	s = parse_specificator(s, str);
+	printf("width: %d\n", str->width);       // При ширине -7 через *
 	return (s - start);
 }
 

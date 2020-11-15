@@ -6,7 +6,7 @@
 /*   By: dsherie <dsherie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/13 17:44:02 by dsherie           #+#    #+#             */
-/*   Updated: 2020/11/15 20:01:52 by dsherie          ###   ########.fr       */
+/*   Updated: 2020/11/15 20:51:20 by dsherie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 int		main(){
 	int data = 29;
-    ft_printf("MY: %u\n", 95u);
-	printf("TH: %u\n", 95u);
+    ft_printf("%0*i\n", -7, -54);
+	printf("%0*i\n", -7, -54);
 
 	
     // ft_printf("МОЯ: %0x\n", data);
