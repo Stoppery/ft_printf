@@ -6,7 +6,7 @@
 /*   By: dsherie <dsherie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/14 17:06:36 by dsherie           #+#    #+#             */
-/*   Updated: 2020/11/15 19:52:37 by dsherie          ###   ########.fr       */
+/*   Updated: 2020/11/26 16:52:41 by dsherie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int		spec_d(t_str *str, va_list parametr)
 	str_length = str_len(str, length, NULL);
 	str_padding(str, length, str_length, 1);
 	if (n < 0 || str->flag_plus || str->flag_space)
-		write(1,&sign, 1);
+		write(1, &sign, 1);
 	str_padding(str, length, str_length, 0);
 	write(1, s, length);
 	str_padding(str, length, str_length, 2);

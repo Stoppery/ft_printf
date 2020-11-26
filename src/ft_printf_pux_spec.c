@@ -6,7 +6,7 @@
 /*   By: dsherie <dsherie@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 17:33:40 by dsherie           #+#    #+#             */
-/*   Updated: 2020/11/15 20:10:12 by dsherie          ###   ########.fr       */
+/*   Updated: 2020/11/26 16:33:33 by dsherie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,7 @@ int	result_ux(t_str *str, unsigned long long n, char *s, char *extra)
 
 	str->flag_zero = (str->flag_accuracy) ? 0 : str->flag_zero;
 	str->flag_space = (str->flag_plus) ? 0 : str->flag_space;
-	if (str->flag_accuracy && !str->accuracy && n == 0)
-		length = 0;
-	else
-		length = ft_strlen(s);
+	length = str->flag_accuracy && !str->accuracy && n == 0 ? 0 : ft_strlen(s);
 	str_length = str_len(str, length, extra);
 	str_padding(str, length, str_length, 1);
 	if (str->extra_symbol)
@@ -67,9 +64,9 @@ int	result_ux(t_str *str, unsigned long long n, char *s, char *extra)
 int	spec_u(t_str *str, va_list parametr)
 {
 	unsigned long long int			u;
-	char					*s;
+	char							*s;
 
-	u = va_arg(parametr, unsigned long long int);
+	u = va_arg(parametr, unsigned int);
 	s = ft_itoa_pux(u, 10, 0);
 	return (result_ux(str, u, s, NULL));
 }
@@ -81,7 +78,7 @@ int	spec_x(t_str *str, va_list parametr)
 	char					*extra;
 	char					eight_conversation;
 
-	x = va_arg(parametr, unsigned long long int);
+	x = va_arg(parametr, unsigned int);
 	if (str->specif == 6)
 		eight_conversation = 'A';
 	else
